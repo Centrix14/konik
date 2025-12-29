@@ -1,4 +1,4 @@
-# ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Konik
+# Konik
 
 Konik is a fork of [Bill's the Farmer Editor](https://github.com/billthefarmer/editor) created in educational purposes.
 
