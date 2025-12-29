@@ -12,6 +12,8 @@ Image and container can be created with `container-create.sh`. This script:
 - builds image,
 - creates container.
 
+**IMPORTANT**. Automatic Android SDK was eliminated, before container creation install necessarry components ("platform;android-30" "build-tools;30.0.3") into `./.ressdk` directory.
+
 To start container you can run something like this:
 
 ``` shell
