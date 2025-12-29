@@ -23,7 +23,7 @@ android {
     namespace "org.billthefarmer.editor"
 
     defaultConfig {
-        applicationId "org.billthefarmer.editor"
+        applicationId "org.centrix.konik"
         minSdkVersion 21
         targetSdkVersion 30
         versionName "1.96"
@@ -40,7 +40,6 @@ android {
     lintOptions {
         disable 'ContentDescription', 'OldTargetApi', 'UnusedResources',
             'NonConstantResourceId', 'ExpiredTargetSdkVersion', 'AndroidGradlePluginVersion'
-        // abortOnError false
     }
 }
 
