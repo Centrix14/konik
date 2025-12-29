@@ -1,31 +1,8 @@
-# ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Editor ![.github/workflows/build.yml](https://github.com/billthefarmer/editor/workflows/.github/workflows/build.yml/badge.svg) [![Release](https://img.shields.io/github/release/billthefarmer/editor.svg?logo=github)](https://github.com/billthefarmer/editor/releases)
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/org.billthefarmer.editor)
+# ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Konik
 
-Android simple generic text editor. The app is available from
-[F-Droid](https://f-droid.org/packages/org.billthefarmer.editor)
-and [here](https://github.com/billthefarmer/editor/releases)
+Konik is a fork of [Bill's the Farmer Editor](https://github.com/billthefarmer/editor) created in educational purposes.
 
-## This app is no longer being maintained. Please feel free to fork or whatever.
-### Issues
-There have been a number of issues raised on this app where users have
-obviously not read this README, looked at the
-[documentation](https://billthefarmer.github.io/editor/), or looked at
-old closed issues. Please read the README, read the
-[docs](https://billthefarmer.github.io/editor/), and look at the old
-issues before raising another one, you can search the issues from the
-box at the top.
-
-### Large files
-Editor loads the whole of file to be edited into memory. It will not
-load large files (larger than ~500Kb) which would cause performance
-issues or cause the app to crash. Please do not raise issues about
-the **Too large** dialog shown when attempting to load a large file.
-
-![Editor](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Editor.png) ![Editor](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Editor-chooser.png)
-
-![Editor](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Editor-landscape.png)
-
-![Editor](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Editor-syntax.png)
+# About
 
 This is a fairly simple generic text editor which may be used
 standalone or to show or edit any sort of text file from another
@@ -89,7 +66,7 @@ Start a new empty file. Use the **Save as** item to save the new file.
 ### Open
 Choose a file to open from the chooser dialog that pops up. The parent
 folder will be the first in the list. See [File
-Chooser](Chooser.md). The file will initially be read-only. Touch the
+Chooser](Features/Chooser.md). The file will initially be read-only. Touch the
 **Edit** toolbar item to enable editing.
 
 ### Open recent
@@ -157,7 +134,7 @@ The current character set is displayed under the current file
 name. The character set is optionally detected when a new file is
 read. It may be changed by selecting the **Charset** item in the menu,
 which shows the current character set. See [Character
-set](Charset.md).
+set](Features/Charset.md).
 
 ### Typeface
 The **Typeface** menu item shows a choice of common typefaces. These
@@ -168,13 +145,13 @@ of them resolve to the same font, depending on the device.
 If the current open file is a C, C++, Objective C, Go, Java,
 Javascript, Python, Shell script, Swift, CSS, HTML, Org or Markdown
 file, the keywords, classes comments, strings, etc will be
-highlighted. See [Syntax Highlighting](Syntax.md).
+highlighted. See [Syntax Highlighting](Features/Syntax.md).
 
 ### Mode line
 If a line of text is found within the first or last two or three lines
 of the file which matches the mode line pattern, the mode of the
 editor will be changed after the file is loaded. See [Mode
-line](Mode.md).
+line](Features/Mode.md).
 ```
 # ed: [[no]vw] [[no]ww] [[no]sg] [[no]hs] [cs:u] [th:l|d|s|w|b|r] [ts:l|m|s] [tf:m|p|s]
 ```
@@ -250,4 +227,4 @@ removable SD card may not save successfully using the save button. Use
 the **Save as** menu item and the **Storage** button to save it using
 the android file manager. Alternatively use the **Storage** button on
 the file chooser dialog to open the file using the android file
-manager. See [File Chooser](Chooser.md).
+manager. See [File Chooser](Features/Chooser.md).
