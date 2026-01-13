@@ -457,6 +457,10 @@ public class Editor extends Activity
 
     private int syntax;
 
+    private boolean isEditMode = false;
+    private boolean isSearch = false;
+    private int accord = 0;
+
     // onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -1207,52 +1211,77 @@ public class Editor extends Activity
         {
             switch (keyCode)
             {
-                // Edit, View
-            case KeyEvent.KEYCODE_E:
-                if (event.isShiftPressed())
-                    viewClicked(null);
-                else
-                    editClicked(null);
+                // Save, Save as
+            case KeyEvent.KEYCODE_A:
+                if (event.accord == 1)
+                    saveAs();
+                this.accord = 0;
                 break;
-                // Search
-            case KeyEvent.KEYCODE_F:
-                if (event.isShiftPressed())
-                    searchItem.collapseActionView();
-                else
-                    searchItem.expandActionView();
-                // Find next
-                if (event.isAltPressed() &&
-                    searchItem.isActionViewExpanded())
-                    queryTextListener.onQueryTextSubmit
-                        (searchView.getQuery().toString());
-                break;
-                // Goto
+
+                // C-g — cancel, reset
             case KeyEvent.KEYCODE_G:
-                goTo();
+                // close search if it was started
+                if (this.isSearch && searchItem.isActionViewExpanded())
+                    searchItem.collapseActionView();
+                
+                this.accord = 0;
+                this.isSearch = false;
                 break;
-                // Menu
+
+                // C-m — toggle menu
             case KeyEvent.KEYCODE_M:
                 openOptionsMenu();
                 break;
-                // New
+
+                // C-x C-n — new file
             case KeyEvent.KEYCODE_N:
-                newFile();
+                if (this.accord == 1)
+                    newFile();
+                this.accord = 0;
                 break;
-                // Open
+
+                // C-x C-o — open file
             case KeyEvent.KEYCODE_O:
-                openFile();
+                if (this.accord == 1)
+                    openFile();
+                this.accord = 0;
                 break;
-                // Print
-            case KeyEvent.KEYCODE_P:
-                print();
-                break;
-                // Save, Save as
+
+                // C-s — search, C-x C-s — save
             case KeyEvent.KEYCODE_S:
-                if (event.isShiftPressed())
-                    saveAs();
-                else
+                if (this.accord == 0) { // C-s - search
+                    // repetition of C-s continues search
+                    if (this.isSearch && searchItem.isActionViewExpanded()) {
+                        queryTextListener.onQueryTextSubmit
+                            (searchView.getQuery().toString());
+                    }
+                    else // single C-s starts search
+                        searchItem.expandActionView();
+                }
+                else if (this.accord == 1) // C-x C-s - save
                     saveCheck();
+
+                this.accord = 0;
                 break;
+
+                // C-x C-q — toggle edit/view mode
+            case KeyEvent.KEYCODE_Q:
+                if (this.accord == 1) {
+                    this.isEditMode = !this.isEditMode;
+                    if (this.isEditMode)
+                        editClicked(null);
+                    else
+                        viewClicked(null);
+                }
+
+                this.accord = 0;
+                break;
+
+                // C-x — combination key
+            case KeyEvent.KEYCODE_X:
+                this.accord = 1;
+                break;
+
                 // Increase text size
             case KeyEvent.KEYCODE_PLUS:
             case KeyEvent.KEYCODE_EQUALS:
@@ -1260,6 +1289,7 @@ public class Editor extends Activity
                 size = Math.max(TINY, Math.min(size, HUGE));
                 textView.setTextSize(size);
                 break;
+
                 // Decrease text size
             case KeyEvent.KEYCODE_MINUS:
                 size -= 2;
@@ -1278,15 +1308,10 @@ public class Editor extends Activity
         {
             switch (keyCode)
             {
-                // Find next
-            case KeyEvent.KEYCODE_F3:
-                if (searchItem.isActionViewExpanded())
-                    queryTextListener.onQueryTextSubmit
-                        (searchView.getQuery().toString());
-                break;
-                // Menu
-            case KeyEvent.KEYCODE_F10:
-                openOptionsMenu();
+                // Goto
+            case KeyEvent.KEYCODE_G:
+                if (event.isAltPressed())
+                    goTo();
                 break;
 
             default:
