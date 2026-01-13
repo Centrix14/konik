@@ -1213,7 +1213,7 @@ public class Editor extends Activity
             {
                 // Save, Save as
             case KeyEvent.KEYCODE_A:
-                if (event.accord == 1)
+                if (this.accord == 1)
                     saveAs();
                 this.accord = 0;
                 break;
@@ -1257,6 +1257,8 @@ public class Editor extends Activity
                     }
                     else // single C-s starts search
                         searchItem.expandActionView();
+
+                    this.isSearch = true;
                 }
                 else if (this.accord == 1) // C-x C-s - save
                     saveCheck();
