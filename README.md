@@ -200,25 +200,19 @@ app read permission. Use the **Save as** menu item to save the file
 elsewhere.
 
 ### Keyboard shortcuts
-When using an external keyboard, some keyboard shortcuts are
-implemented:
- * Ctrl+E &ndash; Edit mode
- * Ctrl+Shift+E &ndash; View mode
- * Ctrl+F &ndash; Search
- * Ctrl+Shift+F &ndash; Close search
- * Ctrl+Alt+F &ndash; Find next
- * Ctrl+G &ndash; Go to
- * Ctrl+M &ndash; Show menu
- * Ctrl+N &ndash; New file
- * Ctrl+O &ndash; Open file
- * Ctrl+S &ndash; Save file
- * Ctrl+Shift+S &ndash; Save as
- * Ctrl++ &ndash; Increase text size
- * Ctrl+- &ndash; Decrease text size
- * F3 &ndash; Find next
- * F10 &ndash; Show menu
-Many other shortcuts &ndash; Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+Z
-are already build in to android.
+When using an external keyboard, some Emacs-like keyboard shortcuts
+are implemented:
+ * C-x C-q — toggle edit/view mode
+ * C-s — (single): start search, (repeat): search next
+ * M-g — go to
+ * C-m — show menu
+ * C-x C-n — new file
+ * C-x C-o — open file
+ * C-x C-s — save file
+ * C-x C-a — save As file
+ * C-+, C-= – increase text size
+ * C-- – decrease text size
+ * C-g — cancel
 
 ### SD cards
 Android allows removable SD cards to be used like a USB stick or as
